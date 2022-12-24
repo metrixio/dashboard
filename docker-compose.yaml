@@ -1,0 +1,46 @@
+version: "3.7"
+
+services:
+  twitter-metrics:
+    image: ghcr.io/metrixio/twitter:dev
+    environment:
+      TWITTER_CONSUMER_KEY: xxx
+      TWITTER_CONSUMER_SECRET: xxx
+      TWITTER_ACCESS_TOKEN: xxx
+      TWITTER_ACCESS_TOKEN_SECRET: xxx
+      TWITTER_ACCOUNTS: 17227608
+    restart: on-failure
+
+#  docker-metrics:
+#    image: ghcr.io/metrixio/docker:dev
+#    environment:
+#      DOCKER_REPOSITORIES: spiralscout/roadrunner
+#    restart: on-failure
+
+  prometheus:
+    image: prom/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=5y'
+      - '--web.enable-lifecycle'
+    volumes:
+      - ./prometheus/:/etc/prometheus/
+      - ./runtime/prometheus:/prometheus
+    restart: always
+
+  grafana:
+    image: grafana/grafana
+    depends_on:
+      - prometheus
+    ports:
+      - 3000:3000
+    volumes:
+      - ./runtime/grafana:/var/lib/grafana
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: secret
+      GF_USERS_ALLOW_SIGN_UP: false
+    restart: always

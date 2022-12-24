@@ -1,0 +1,23 @@
+global:
+  scrape_interval: 60s
+  evaluation_interval: 60s
+  external_labels:
+    monitor: 'Metrics'
+
+scrape_configs:
+  - job_name: 'twitter'
+    scrape_interval: 60s
+    static_configs:
+      - targets: [ 'twitter-metrics:2112' ]
+#  - job_name: 'docker'
+#    scrape_interval: 60s
+#    static_configs:
+#      - targets: [ 'docker-metrics:2112' ]
+#  - job_name: 'github'
+#    scrape_interval: 60s
+#    static_configs:
+#      - targets: [ 'github-metrics:2112' ]
+#  - job_name: 'packagist'
+#    scrape_interval: 60s
+#    static_configs:
+#      - targets: [ 'packagist-metrics:2112' ]
