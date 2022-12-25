@@ -43,7 +43,7 @@ account IDS to follow in `TWITTER_ACCOUNTS` environment variable.
 ```yaml
 services:
   twitter-metrics:
-    image: ghcr.io/metrixio/twitter:dev
+    image: ghcr.io/metrixio/twitter:latest
     environment:
       TWITTER_CONSUMER_KEY: xxx
       TWITTER_CONSUMER_SECRET: xxx
@@ -78,7 +78,7 @@ environment variable:
 ```yaml
 services:
   docker-metrics:
-    image: ghcr.io/metrixio/docker:dev
+    image: ghcr.io/metrixio/docker:latest
     environment:
       DOCKER_REPOSITORIES: spiralscout/roadrunner,butschster/buggregator
     restart: on-failure
@@ -98,3 +98,37 @@ scrape_configs:
 
 Put dashboards you want to use in `grafana/provisioning/dashboards` directory from
 the [dashboards repository](https://github.com/metrixio/docker/tree/master/grafana)
+
+### Gituhb public
+
+![github](https://user-images.githubusercontent.com/773481/209463759-1a359047-3263-454b-b8ae-3444b5102bc8.png)
+
+To use the package, you just need to create a Github API token. Once you have
+obtained your API token, you can use the package's functions to authenticate and start collecting data.
+
+Then you need to specify the list of repositories to follow in `GITHUB_REPOSITORIES` environment variable:
+
+```yaml
+services:
+  github-public-metrics:
+    image: ghcr.io/metrixio/github-public:latest
+    environment:
+      GITHUB_TOKEN: xxx
+      GITHUB_REPOSITORIES: spiral/framework,spiral/roadrunner
+    restart: on-failure
+```
+
+Configure the Prometheus server to scrape metrics from the Twitter metrics collector in `prometheus/prometheus.yml`
+file:
+
+```yaml
+scrape_configs:
+  - job_name: 'github-public'
+    scrape_interval: 60s
+    static_configs:
+      - targets: [ 'github-public-metrics:2112' ]
+  ...
+```
+
+Put dashboards you want to use in `grafana/provisioning/dashboards` directory from
+the [dashboards repository](https://github.com/metrixio/github-public/tree/master/grafana)
