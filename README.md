@@ -111,7 +111,7 @@ Then you need to specify the list of repositories to follow in `GITHUB_REPOSITOR
 ```yaml
 services:
   github-public-metrics:
-    image: ghcr.io/metrixio/github-public:latest
+    image: ghcr.io/metrixio/github-public:dev
     environment:
       GITHUB_TOKEN: xxx
       GITHUB_REPOSITORIES: spiral/framework,spiral/roadrunner
