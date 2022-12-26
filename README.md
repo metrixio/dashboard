@@ -1,17 +1,10 @@
 # Metrics dashboard
 
-A dashboard repository provides ready-made Grafana dashboards for monitoring data from Twitter, GitHub, Docker,
-and Packagist. It can be a useful tool for developers and other professionals who want to quickly and easily track key
-metrics from these sources.
+Dashboard is a collection of pre-made Grafana dashboards that let you track and analyze data from Twitter, GitHub, Docker, and Packagist. 
 
-With the repository, you can get started with Grafana quickly, without the need to spend time creating and
-configuring your own dashboards from scratch. Simply clone the repository and select metrics collectors you want to use,
-and
-you'll be able to monitor your data in real-time.
+It's super handy for developers and other professionals who need to keep an eye on certain metrics, but don't want to spend time building their own dashboards from scratch. 
 
-With Grafana, you can build dashboards that display real-time data, allowing you to monitor and analyze key performance
-indicators in real-time. You can also create alerts to notify you of changes or anomalies in your data, helping you to
-stay on top of important trends and issues.
+All you have to do is clone the repository and choose the metrics collectors you want to use, and you'll be able to see your data in real-time. Plus, with Grafana, you can create dashboards that show live data and set up alerts to let you know if anything changes or seems off.
 
 ## Requirements
 
