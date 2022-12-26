@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   twitter-metrics:
-    image: ghcr.io/metrixio/twitter:dev
+    image: ghcr.io/metrixio/twitter:latest
     environment:
       TWITTER_CONSUMER_KEY: xxx
       TWITTER_CONSUMER_SECRET: xxx
@@ -12,9 +12,17 @@ services:
     restart: on-failure
 
 #  docker-metrics:
-#    image: ghcr.io/metrixio/docker:dev
+#    image: ghcr.io/metrixio/docker:latest
 #    environment:
 #      DOCKER_REPOSITORIES: spiralscout/roadrunner
+#    restart: on-failure
+
+
+#  github-public-metrics:
+#    image: ghcr.io/metrixio/github-public:latest
+#    environment:
+#      GITHUB_REPOSITORIES: spiral/framework
+#      GITHUB_TOKEN: xxx
 #    restart: on-failure
 
   prometheus:
