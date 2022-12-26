@@ -19,14 +19,16 @@ Clone the repository:
 git clone https://github.com/metrixio/dashboard.git
 ```
 
-Configure the metrics collectors you want to use in `docker-compose.yml`:
+## Configuration
+
+To configure the metrics collectors you want to use, you will need to edit the `docker-compose.yaml` file and add the appropriate service definitions for the collectors you want to use.
 
 ### Twitter
 
 ![twitter](https://user-images.githubusercontent.com/773481/209433204-d3a5efb4-80f8-495b-bfbf-f4806f4d094b.png)
 
 To use the twitter collector, you will need to have a Twitter developer account and create
-a [Twitter API key][Twitter API credentials](https://developer.twitter.com/en/docs/basics/authentication/guides/access-tokens.html).
+a [Twitter API credentials](https://developer.twitter.com/en/docs/basics/authentication/guides/access-tokens.html).
 Once you have obtained your API key, you can start collecting data. Then you just need to specify the list of
 account IDS to follow in `TWITTER_ACCOUNTS` environment variable.
 
