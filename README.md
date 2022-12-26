@@ -133,3 +133,37 @@ scrape_configs:
 
 Put dashboards you want to use in `grafana/provisioning/dashboards` directory from
 the [dashboards repository](https://github.com/metrixio/github-public/tree/master/grafana)
+
+### Packagist
+
+![packagist](https://user-images.githubusercontent.com/773481/209584409-3275bfa7-f131-44de-b4c1-341d4b0cd3d3.png)
+
+To use the packagist collector, you just need to specify the list of repositories to follow in `PACKAGIST_REPOSITORIES`
+environment variable:
+
+```yaml
+services:
+  packagist-metrics:
+    image: ghcr.io/metrixio/packagist:latest
+    environment:
+      PACKAGIST_REPOSITORIES: spiral/framework
+    restart: on-failure
+
+  ...
+```
+
+Configure the Prometheus server to scrape metrics from the packagist metrics collector in `prometheus/prometheus.yml`
+file:
+
+```yaml
+scrape_configs:
+  - job_name: 'docker'
+    scrape_interval: 60s
+    static_configs:
+      - targets: [ 'packagist-metrics:2112' ]
+  ...
+```
+
+Put dashboards you want to use in `grafana/provisioning/dashboards` directory from
+the [dashboards repository](https://github.com/metrixio/packagist/tree/master/grafana)
+
