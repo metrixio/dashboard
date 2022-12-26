@@ -44,6 +44,8 @@ services:
       TWITTER_ACCESS_TOKEN_SECRET: xxx
       TWITTER_ACCOUNTS: 17227608,25073877,783214
     restart: on-failure
+
+  ...
 ```
 
 Configure the Prometheus server to scrape metrics from the Twitter metrics collector in `prometheus/prometheus.yml`
@@ -75,6 +77,8 @@ services:
     environment:
       DOCKER_REPOSITORIES: spiralscout/roadrunner,butschster/buggregator
     restart: on-failure
+
+  ...
 ```
 
 Configure the Prometheus server to scrape metrics from the Twitter metrics collector in `prometheus/prometheus.yml`
@@ -109,6 +113,8 @@ services:
       GITHUB_TOKEN: xxx
       GITHUB_REPOSITORIES: spiral/framework,spiral/roadrunner
     restart: on-failure
+
+  ...
 ```
 
 Configure the Prometheus server to scrape metrics from the Twitter metrics collector in `prometheus/prometheus.yml`
