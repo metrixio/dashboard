@@ -6,6 +6,9 @@ It's super handy for developers and other professionals who need to keep an eye 
 
 All you have to do is clone the repository and choose the metrics collectors you want to use, and you'll be able to see your data in real-time. Plus, with Grafana, you can create dashboards that show live data and set up alerts to let you know if anything changes or seems off.
 
+[<img src="https://user-images.githubusercontent.com/773481/209725543-b60baee8-ec48-4d51-bf73-94e9c62151b5.gif" width="50%">](https://youtu.be/DtZELp2sok4)
+> View full video on [youtube](https://youtu.be/DtZELp2sok4)
+
 ## Requirements
 
 - [Docker](https://docs.docker.com/install/)
