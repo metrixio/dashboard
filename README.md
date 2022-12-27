@@ -178,5 +178,10 @@ the [dashboards repository](https://github.com/metrixio/packagist/tree/master/gr
 docker compose up
 ```
 
+Metrics will be available on http://127.0.0.1:3000
+
+Default username: **admin**
+Default password: **secret**
+
 
 # Enjoy!
