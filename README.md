@@ -17,6 +17,10 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/metrixio/dashboard.git
+
+cd ./dashboard
+
+chmod 0777 runtime/ -R
 ```
 
 ## Configuration
@@ -167,3 +171,12 @@ scrape_configs:
 Put dashboards you want to use in `grafana/provisioning/dashboards` directory from
 the [dashboards repository](https://github.com/metrixio/packagist/tree/master/grafana)
 
+
+## Usage
+
+```bash
+docker compose up
+```
+
+
+# Enjoy!
